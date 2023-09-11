@@ -6,4 +6,25 @@ body {
 
 header {
     font-size: 150;
+    display: flex;
+    justify-content: center;
 }
+
+menu {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+
+}
+
+#highscores {
+    display: flex;
+    justify-content: left;
+}
+
+#timer {
+    display: flex;
+    justify-content: right;
+   
+}
+

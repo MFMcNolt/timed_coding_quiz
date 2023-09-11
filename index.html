@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz</title>
     <link rel="stylesheet" href="assets/style.css">
+    
 </head>
 <body>
     <header id="header">Coding Quiz on JavaScript Fundamentals</header>
     
-    <menu>
-        <ol class="menu">
-            <li><a href="highscores.html" id="highscores"></a>View Higherscores</button></li>
-            <li id="timer">Time</li>
-        </ol>
-    </menu>
+<menu class="menu">
+        <div id="highscores"><a href="highscores.html">View High Scores</a></div>
+        <div id="countdown"><span id="timer">Timer</span></div>
+</menu>
+
     
-    <section class="container">
-        <h1>Questions</h1>
-        <button>Start Quiz</button>
-    </section>
-    
-</body>
+<section class="Quiz">
+        <h1>Insert Quiz Here</h1>
+        <div class="question" id="ques"></div>
+        <div class="options" id="opt"></div>
+        <button onclick="checkAns()" id="btn">SUBMIT</button>
+        <div id="score"></div>
+       
+</section>
+
 <script src="assets/script.js"></script>
+</body>
+
 
 </html>

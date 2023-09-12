@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Quiz</title>
+    <title>My Coding Quiz</title>
     <link rel="stylesheet" href="assets/style.css">
-
 </head>
 
 <body>
@@ -14,20 +12,26 @@
 
     <menu class="menu">
         <div id="highscores"><a href="highscores.html">View High Scores</a></div>
-        <div id="countdown"><span id="timer">Timer</span></div>
+        <div id="timer">Time: <span id="time-left">60</span> seconds</div>
     </menu>
 
     <div class="startDiv">
+        <h1>Coding Quiz on Javascript Fundamentals</h1>
         <button id="startButton">Start Quiz</button>
+        <div id="quizDiv" class="hide">
+            <h2 id="question-text"></h2>
+            <ul id="answers"></ul>
     </div>
 
-    <section class="Quiz hide">
-        <h1>Insert Quiz Here</h1>
-        <div class="question" id="ques"></div>
-        <div class="options" id="opt"></div>
-        <div id="score"></div>
-
-    </section>
+    <div id="game-over" class="hide">
+        <h2>Game Over!</h2>
+        <p>Your score: <span id="final-score">0</span></p>
+        <form id="initials-form">
+            <label for="initials">Enter your initials:</label>
+            <input type="text" id="initials" maxlength="3" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <script src="assets/script.js"></script>
 </body>

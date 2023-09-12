@@ -14,171 +14,102 @@ startButton.addEventListener ("click", function(){
   startDiv.classList.add ("hide");
 })
 
-// HTML structure for a question container
-var questionContainer = document.createElement("quizDiv");
-questionContainer.classList.add("question-container");
-
-// Sample questions and answers (you can replace this with your actual data)
-var question = [{
-    Q: "Which of the following is not a JavaScript Data type?";
-    A: [{Text: "Number", isCorrect: false};
-    {Text: "String", isCorrect: false};
-    {Text: "Bootleg", isCorrect: true};
-    {Text: "Object", isCorrect: false};
-    {Text: "Undefined", isCorrect: false};
-    ]};
-    {
-    Q: "Arrays in JavaScript can be used to store...?";
-    A: [{Text: "Seeds", isCorrect: false};
-    {Text: "Noise", isCorrect: false};
-    {Text: "Numbers", isCorrect: true};
-    {Text: "Links", isCorrect: false};
-    ]};
-    {
-    Q: "Inside what HTML tag would you put JavaScript code?";
-    A: [{Text: "js", isCorrect: false};
-    {Text: "scripting", isCorrect: false};
-    {Text: "script", isCorrect: true};
-    {Text: "javascript", isCorrect: false};
-    ]};
-    {
-    Q: "When you dont assign a value to a variable it will be?";
-    A: [{Text: "null", isCorrect: false};
-    {Text: "undefined", isCorrect: true};
-    {Text: "'()'", isCorrect: false};
-    {Text: "NaN", isCorrect: false};
-    ]};
+// Questions and answers
+var questions = [
+  {
+      Q: "Which of the following is not a JavaScript Data type?",
+      A: [
+          { Text: "Number", isCorrect: false },
+          { Text: "String", isCorrect: false },
+          { Text: "Bootleg", isCorrect: true },
+          { Text: "Object", isCorrect: false },
+          { Text: "Undefined", isCorrect: false }
+      ]
+  },
+  {
+      Q: "Arrays in JavaScript can be used to store...?",
+      A: [
+          { Text: "Seeds", isCorrect: false },
+          { Text: "Noise", isCorrect: false },
+          { Text: "Numbers", isCorrect: true },
+          { Text: "Links", isCorrect: false }
+      ]
+  },
+  {
+      Q: "Inside what HTML tag would you put JavaScript code?",
+      A: [
+          { Text: "js", isCorrect: false },
+          { Text: "scripting", isCorrect: false },
+          { Text: "script", isCorrect: true },
+          { Text: "javascript", isCorrect: false }
+      ]
+  },
+  {
+      Q: "When you don't assign a value to a variable it will be?",
+      A: [
+          { Text: "null", isCorrect: false },
+          { Text: "undefined", isCorrect: true },
+          { Text: "'()'", isCorrect: false },
+          { Text: "NaN", isCorrect: false }
+      ]
+  },
+  {
+      Q: "What does 'DOM' stand for in JavaScript?",
+      A: [
+          { Text: "Document Object Model", isCorrect: true },
+          { Text: "Data Object Model", isCorrect: false },
+          { Text: "Document Oriented Model", isCorrect: false },
+          { Text: "Dynamic Object Manipulation", isCorrect: false }
+      ]
+  },
+  {
+      Q: "Which keyword is used to declare a variable in JavaScript?",
+      A: [
+          { Text: "variable", isCorrect: false },
+          { Text: "var", isCorrect: true },
+          { Text: "declare", isCorrect: false },
+          { Text: "let", isCorrect: false }
+      ]
+  },
+  {
+      Q: "What is the result of the expression '2' + 2 in JavaScript?",
+      A: [
+          { Text: "4", isCorrect: false },
+          { Text: "22", isCorrect: true },
+          { Text: "2 + 2", isCorrect: false },
+          { Text: "TypeError", isCorrect: false }
+      ]
+  },
+  {
+      Q: "Which JavaScript function is used to parse a JSON string?",
+      A: [
+          { Text: "JSON.parse()", isCorrect: true },
+          { Text: "parseJSON()", isCorrect: false },
+          { Text: "stringifyJSON()", isCorrect: false },
+          { Text: "jsonify()", isCorrect: false }
+      ]
+  },
+  {
+      Q: "What is the purpose of the 'addEventListener' method in JavaScript?",
+      A: [
+          { Text: "To add styles to an element", isCorrect: false },
+          { Text: "To append a new element to the DOM", isCorrect: false },
+          { Text: "To attach an event handler to an element", isCorrect: true },
+          { Text: "To create a new JavaScript object", isCorrect: false }
+      ]
+  }
 ];
 
-// Function to display a question
-function displayQuestion(question) {
-  // Create question element
-  var questionElement = document.createElement("p");
-  questionElement.textContent = question.question;
+// Global variables
+const startButton = document.getElementById("start-button");
+const quizContainer = document.getElementById("quiz");
+const questionText = document.getElementById("question-text");
+const answersList = document.getElementById("answers");
+const timerElement = document.getElementById("time-left");
+const initialsForm = document.getElementById("initials-form");
+const finalScoreElement = document.getElementById("final-score");
 
-  // Create answer options
-  var answerList = document.createElement("ul");
-  question.answers.forEach(function (answer) {
-    var answerItem = document.createElement("li");
-    answerItem.textContent = answer;
-    answerList.appendChild(answerItem);
-  });
-
-  // Add question and answers to the container
-  questionContainer.innerHTML = "";
-  questionContainer.appendChild(questionElement);
-  questionContainer.appendChild(answerList);
-
-  // Append the question container to your HTML where you want to display it
-  var questionsDiv = document.querySelector(".questionsDiv");
-  questionsDiv.appendChild(questionContainer);
-}
-
-// Function to start the quiz
-function startQuiz() {
-  var startDiv = document.querySelector(".startDiv");
-  startDiv.classList.add("hide");
-
-  // Display the first question (you can use a counter to keep track of the current question)
-  displayQuestion(questions[0]);
-}
-
-// Attach a click event listener to the start button
-startButton.addEventListener("click", startQuiz);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*timer
-var timeLeft = 60;
-var elem = document.getElementById('Timer');
-
-var timerId = setInterval(countdown, 1000);
-
-function countdown() {
-  if (timeLeft == 0) {
-    clearTimeout(timerId);
-    doSomething();
-  }
-}
-*/
-
-/*Quiz function
-function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
-
-	function showQuestions(questions, quizContainer){
-		// code will go here
-	}
-
-	function showResults(questions, quizContainer, resultsContainer){
-		// code will go here
-	}
-
-	// show the questions
-	showQuestions(questions, quizContainer);
-
-	// when user clicks submit, show results
-	submitButton.onclick = function(){
-		showResults(questions, quizContainer, resultsContainer);
-	}
-}
-*/
-
-// Questions
-var Questions = [{
-    Q: "Which of the following is not a JavaScript Data type?";
-    A: [{Text: "Number", isCorrect: false}
-    {Text: "String", isCorrect: false}
-    {Text: "Bootleg", isCorrect: true}
-    {Text: "Object", isCorrect: false}
-    {Text: "Undefined", isCorrect: false}
-    ]}
-    {
-    Q: "Arrays in JavaScript can be used to store...?";
-    A: [{Text: "Seeds", isCorrect: false}
-    {Text: "Noise", isCorrect: false}
-    {Text: "Numbers", isCorrect: true}
-    {Text: "Links", isCorrect: false}
-    ]}
-    {
-    Q: "Inside what HTML tag would you put JavaScript code?";
-    A: [{Text: "js", isCorrect: false}
-    {Text: "scripting", isCorrect: false}
-    {Text: "script", isCorrect: true}
-    {Text: "javascript", isCorrect: false}
-    ]}
-    {
-    Q: "When you dont assign a value to a variable it will be?";
-    A: [{Text: "null", isCorrect: false}
-    {Text: "undefined", isCorrect: true}
-    {Text: "'()'", isCorrect: false}
-    {Text: "NaN", isCorrect: false}
-    ]}
-]
+let currentQuestionIndex = 0;
+let timeLeft = 60;
+let score = 0;
+let timerInterval;

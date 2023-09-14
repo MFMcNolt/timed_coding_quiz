@@ -32,7 +32,7 @@ The JavaScript Coding Quiz is designed to be user-friendly and straightforward t
 
 - Once the quiz starts, users will be presented with a series of multiple-choice questions, one at a time, along with a timer displaying the remaining time.
 
-![Question](assets/images/question.png)
+![Question](assets/images/questions.png)
 
 - Read each question carefully and click on the answer you believe is correct.
 

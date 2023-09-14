@@ -1,115 +1,196 @@
-// The start button appear, with question hidden
+document.addEventListener("DOMContentLoaded", function () {
 
-// click start button
-//  which hide intro to quiz, 
-//  show first question, 
-//  start TimeR
-
-// listen to answering the question
-
-var startButton = document.querySelector ("#startButton")
-
-startButton.addEventListener ("click", function(){
-  var startDiv = document.querySelector (".startDiv");
-  startDiv.classList.add ("hide");
-})
-
-// Questions and answers
 var questions = [
   {
-      Q: "Which of the following is not a JavaScript Data type?",
-      A: [
-          { Text: "Number", isCorrect: false },
-          { Text: "String", isCorrect: false },
-          { Text: "Bootleg", isCorrect: true },
-          { Text: "Object", isCorrect: false },
-          { Text: "Undefined", isCorrect: false }
-      ]
+    question: "Which of the following is not a JavaScript Data type?",
+    answers: [
+      "Number",
+      "String",
+      "Bootleg",
+      "Object",
+      "Undefined"
+    ],
+    correctAnswer: "Bootleg"
   },
   {
-      Q: "Arrays in JavaScript can be used to store...?",
-      A: [
-          { Text: "Seeds", isCorrect: false },
-          { Text: "Noise", isCorrect: false },
-          { Text: "Numbers", isCorrect: true },
-          { Text: "Links", isCorrect: false }
-      ]
+    question: "Arrays in JavaScript can be used to store...?",
+    answers: [
+      "Seeds",
+      "Noise",
+      "Numbers",
+      "Links"
+    ],
+    correctAnswer: "Numbers"
   },
   {
-      Q: "Inside what HTML tag would you put JavaScript code?",
-      A: [
-          { Text: "js", isCorrect: false },
-          { Text: "scripting", isCorrect: false },
-          { Text: "script", isCorrect: true },
-          { Text: "javascript", isCorrect: false }
-      ]
+    question: "Inside what HTML tag would you put JavaScript code?",
+    answers: [
+      "js",
+      "scripting",
+      "script",
+      "javascript"
+    ],
+    correctAnswer: "script"
   },
   {
-      Q: "When you don't assign a value to a variable it will be?",
-      A: [
-          { Text: "null", isCorrect: false },
-          { Text: "undefined", isCorrect: true },
-          { Text: "'()'", isCorrect: false },
-          { Text: "NaN", isCorrect: false }
-      ]
+    question: "When you don't assign a value to a variable it will be?",
+    answers: [
+      "null",
+      "undefined",
+      "'()'",
+      "NaN"
+    ],
+    correctAnswer: "undefined"
   },
   {
-      Q: "What does 'DOM' stand for in JavaScript?",
-      A: [
-          { Text: "Document Object Model", isCorrect: true },
-          { Text: "Data Object Model", isCorrect: false },
-          { Text: "Document Oriented Model", isCorrect: false },
-          { Text: "Dynamic Object Manipulation", isCorrect: false }
-      ]
+    question: "What does 'DOM' stand for in JavaScript?",
+    answers: [
+      "Document Object Model",
+      "Data Object Model",
+      "Document Oriented Model",
+      "Dynamic Object Manipulation"
+    ],
+    correctAnswer: "Document Object Model"
   },
   {
-      Q: "Which keyword is used to declare a variable in JavaScript?",
-      A: [
-          { Text: "variable", isCorrect: false },
-          { Text: "var", isCorrect: true },
-          { Text: "declare", isCorrect: false },
-          { Text: "let", isCorrect: false }
-      ]
+    question: "Which keyword is used to declare a variable in JavaScript?",
+    answers: [
+      "variable",
+      "var",
+      "declare",
+      "let"
+    ],
+    correctAnswer: "var"
   },
   {
-      Q: "What is the result of the expression '2' + 2 in JavaScript?",
-      A: [
-          { Text: "4", isCorrect: false },
-          { Text: "22", isCorrect: true },
-          { Text: "2 + 2", isCorrect: false },
-          { Text: "TypeError", isCorrect: false }
-      ]
+    question: "What is the result of the expression '2' + 2 in JavaScript?",
+    answers: [
+      "4",
+      "22",
+      "2 + 2",
+      "TypeError"
+    ],
+    correctAnswer: "22"
   },
   {
-      Q: "Which JavaScript function is used to parse a JSON string?",
-      A: [
-          { Text: "JSON.parse()", isCorrect: true },
-          { Text: "parseJSON()", isCorrect: false },
-          { Text: "stringifyJSON()", isCorrect: false },
-          { Text: "jsonify()", isCorrect: false }
-      ]
+    question: "Which JavaScript function is used to parse a JSON string?",
+    answers: [
+      "JSON.parse()",
+      "parseJSON()",
+      "stringifyJSON()",
+      "jsonify()"
+    ],
+    correctAnswer: "JSON.parse()"
   },
   {
-      Q: "What is the purpose of the 'addEventListener' method in JavaScript?",
-      A: [
-          { Text: "To add styles to an element", isCorrect: false },
-          { Text: "To append a new element to the DOM", isCorrect: false },
-          { Text: "To attach an event handler to an element", isCorrect: true },
-          { Text: "To create a new JavaScript object", isCorrect: false }
-      ]
+    question: "What is the purpose of the 'addEventListener' method in JavaScript?",
+    answers: [
+      "To add styles to an element",
+      "To append a new element to the DOM",
+      "To attach an event handler to an element",
+      "To create a new JavaScript object"
+    ],
+    correctAnswer: "To attach an event handler to an element"
   }
 ];
 
-// Global variables
+
+
+
+// DOM Elements
 const startButton = document.getElementById("start-button");
 const quizContainer = document.getElementById("quiz");
 const questionText = document.getElementById("question-text");
 const answersList = document.getElementById("answers");
 const timerElement = document.getElementById("time-left");
+const highscoresContainer = document.getElementById("highscores-container");
+const finalScore = document.getElementById("final-score");
 const initialsForm = document.getElementById("initials-form");
-const finalScoreElement = document.getElementById("final-score");
+const initialsInput = document.getElementById("initials");
 
+// Other Variables
 let currentQuestionIndex = 0;
+let timerInterval;
 let timeLeft = 60;
 let score = 0;
-let timerInterval;
+
+// Function to start the quiz
+function startQuiz() {
+  startButton.style.display = "none";
+  quizContainer.style.display = "block";
+  setNextQuestion();
+  startTimer();
+}
+
+// Function to display the next question
+function setNextQuestion() {
+  if (currentQuestionIndex < questions.length) {
+      const question = questions[currentQuestionIndex];
+      questionText.innerText = question.question;
+      answersList.innerHTML = "";
+
+      question.answers.forEach(answer => {
+          const answerItem = document.createElement("li");
+          answerItem.innerText = answer;
+          answerItem.addEventListener("click", () => checkAnswer(answer));
+          answersList.appendChild(answerItem);
+      });
+  } else {
+      endQuiz();
+  }
+}
+
+// Function to check if the selected answer is correct
+function checkAnswer(selectedAnswer) {
+  const currentQuestion = questions[currentQuestionIndex];
+
+  if (selectedAnswer === currentQuestion.correct) {
+      score++;
+  } else {
+      timeLeft -= 10;
+  }
+
+  currentQuestionIndex++;
+  setNextQuestion();
+}
+
+// Function to start the timer
+function startTimer() {
+  timerInterval = setInterval(() => {
+      timeLeft--;
+      timerElement.innerText = timeLeft;
+
+      if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          endQuiz();
+      }
+  }, 1000);
+}
+
+// Function to end the quiz
+function endQuiz() {
+  clearInterval(timerInterval);
+  quizContainer.style.display = "none";
+  highscoresContainer.style.display = "block";
+  finalScore.innerText = score;
+}
+
+// Event Listener for the "Start Quiz" button
+startButton.addEventListener("click", startQuiz);
+
+// Event Listener for the initials form submission
+initialsForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const initials = initialsInput.value.trim().toUpperCase(); // Retrieve initials from the input field
+
+  if (initials !== "") {
+    const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    highScores.push({ initials, score });
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+
+    // Optionally, you can redirect to the high scores page after submitting
+    window.location.href = "highscores.html";
+  }
+
+});
+});

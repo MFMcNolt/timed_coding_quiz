@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Coding Quiz</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/style.css">
+
 </head>
 
 <body>
@@ -15,26 +17,33 @@
         <div id="timer">Time: <span id="time-left">60</span> seconds</div>
     </menu>
 
-    <div class="startDiv">
-        <h1>Coding Quiz on Javascript Fundamentals</h1>
-        <button id="startButton">Start Quiz</button>
-        <div id="quizDiv" class="hide">
-            <h2 id="question-text"></h2>
-            <ul id="answers"></ul>
+    <div class="start-container">
+        <p>Welcome to the coding quiz on JavaScript fundamentals. The timer is set to 60s and will deduct 10 seconds for every wrong answer. Please click your answers till the timer runs out, then submit your highscores! Good Luck!</p>
+        <button id="start-button">Start Quiz</button>
     </div>
 
-    <div id="game-over" class="hide">
+    <div class="quiz-container">
+        <div id="quiz">
+            <h2 id="question-text"></h2>
+            <ul id="answers">
+                <li id="answer-0"></li>
+                <li id="answer-1"></li>
+                <li id="answer-2"></li>
+                <li id="answer-3"></li>
+            </ul>
+        </div> 
+    </div>
+
+    <div id="highscores-container">
         <h2>Game Over!</h2>
         <p>Your score: <span id="final-score">0</span></p>
         <form id="initials-form">
-            <label for="initials">Enter your initials:</label>
-            <input type="text" id="initials" maxlength="3" required>
+            <label for="initials">Enter your initials and high score:</label>
+            <input type="text" id="initials" maxlength="10" required>
             <button type="submit">Submit</button>
         </form>
     </div>
 
     <script src="assets/script.js"></script>
 </body>
-
-
 </html>

@@ -1,33 +1,110 @@
+/* Reset default margins and paddings */
+body, h1, h2, ul, li, p {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: coral;
-    color: black;
+    background-color: #f2f2f2;
+    color: #333;
+    text-align: center; /* Center-align text content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Make the body take up the full viewport height */
+}
+
+/* Improve readability by setting a font size for the body */
+body {
+    font-size: 18px;
 }
 
 header {
-    font-size: 150;
-    display: flex;
-    justify-content: center;
+    font-size: 36px; /* Increase font size for the header */
+    text-align: center; /* Center-align the header text */
+    padding: 20px 0; /* Add some top and bottom padding to the header */
+    background-color: #ff5733; /* Add a background color */
+    color: white; /* Change header text color to white */
+    border-radius: 10px; /* Add border radius to header */
+    margin-bottom: 20px; /* Add some margin at the bottom of the header */
 }
 
-menu {
+.menu {
     display: flex;
-    justify-content: space-evenly;
-    padding: 0;
-
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Center-align items vertically */
+    padding: 10px 20px; /* Add padding to the menu */
+    background-color: #ff5733; /* Add a background color to the menu */
+    border-radius: 5px; /* Add border radius to the menu */
+    margin-bottom: 20px; /* Add some margin at the bottom of the menu */
 }
 
-#highscores {
-    display: flex;
-    justify-content: left;
+.menu a {
+    color: white; /* Change menu link text color to white */
+    text-decoration: none; /* Remove underlines from menu links */
+    font-weight: bold; /* Make menu links bold */
+    padding: 5px 10px; /* Add padding to menu links */
+    border: 1px solid #fff; /* Add a border to menu links */
+    border-radius: 5px; /* Add border radius to menu links */
+    transition: background-color 0.3s; /* Smooth background color transition */
 }
 
-#timer {
-    display: flex;
-    justify-content: right;
-   
+.menu a:hover {
+    background-color: #fff; /* Change background color on hover */
+    color: #ff5733; /* Change text color on hover */
 }
 
-.hide {
-    display:none;
+.start-container, .quiz-container, .highscores-container {
+    background-color: white; /* Add a white background to containers */
+    border-radius: 10px; /* Add border radius to containers */
+    padding: 20px; /* Add padding to containers */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a shadow effect to containers */
+    max-width: 500px; /* Limit the container width for better readability */
+    margin-bottom: 20px; /* Add some margin at the bottom of containers */
+}
+
+button {
+    background-color: #ff5733; /* Add a background color to buttons */
+    color: white; /* Change button text color to white */
+    border: none; /* Remove button borders */
+    border-radius: 5px; /* Add border radius to buttons */
+    padding: 10px 20px; /* Add padding to buttons */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+button:hover {
+    background-color: #f24919; /* Change background color on hover */
+}
+
+#answers li {
+    list-style: none; /* Remove default list styles */
+    margin: 10px 0; /* Add some vertical margin to answer choices */
+}
+#answers li.selected {
+    background-color: #ff5733; /* Change background color for selected answer */
+    color: white; /* Change text color for selected answer */
+    font-weight: bold; /* Make selected answer text bold */
+    cursor: default; /* Disable cursor for selected answer */
+}
+
+.selected-answer {
+    background-color: #4CAF50; /* Green color for selected answer */
+    color: white; /* White text on a green background */
+  }
+
+.feedback {
+    font-weight: bold; /* Make feedback text bold */
+    margin-top: 10px; /* Add margin at the top of the feedback */
+}
+
+#initials-form {
+    text-align: center; /* Center-align the form */
+}
+
+#initials {
+    padding: 5px; /* Add padding to input field */
+    margin-top: 10px; /* Add margin at the top of the input field */
 }

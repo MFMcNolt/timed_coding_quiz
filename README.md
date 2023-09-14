@@ -18,6 +18,8 @@ High Scores: Users can submit their high scores, fostering a sense of achievemen
 
 ## Usage
 
+Please find link to quiz here: https://mfmcnolt.github.io/timed_coding_quiz/
+
 The JavaScript Coding Quiz is designed to be user-friendly and straightforward to use. Here are step-by-step instructions for using this quiz:
 
 **1. Starting the Quiz:**

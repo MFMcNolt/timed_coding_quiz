@@ -2,35 +2,67 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+The motivation behind creating this JavaScript Coding Quiz was to offer an engaging and interactive way for individuals to test their knowledge of JavaScript fundamentals. JavaScript is a widely used programming language in web development, and having a solid understanding of its basics is crucial for aspiring developers. This quiz serves as an educational tool and a fun way to reinforce and assess one's JavaScript knowledge.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+The primary goal of this project was to build an intuitive and accessible web application that can be easily used by individuals interested in learning JavaScript or assessing their existing knowledge. The project's purpose goes beyond being just a homework assignment; it aims to provide a practical and enjoyable learning experience for users.
 
-## Table of Contents (Optional)
+This JavaScript Coding Quiz addresses several key objectives:
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
+Assessment: It allows users to assess their understanding of JavaScript fundamentals by answering multiple-choice questions.
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+Learning: It serves as a learning tool, providing immediate feedback on the correctness of answers and explanations for incorrect choices.
 
-## Installation
+Engagement: The inclusion of a timer and scoring system adds an element of competition and motivation to complete the quiz quickly and accurately.
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+High Scores: Users can submit their high scores, fostering a sense of achievement and competition among participants.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+The JavaScript Coding Quiz is designed to be user-friendly and straightforward to use. Here are step-by-step instructions for using this quiz:
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+**1. Starting the Quiz:**
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+- Upon opening the web application, users will encounter a welcoming message and an inviting "Start Quiz" button. This button is prominently displayed in the center of the screen.
+
+![Start Button](assets/images/start-button.png)
+
+- To initiate the quiz, simply click on the "Start Quiz" button.
+
+**2. Answering Questions:**
+
+- Once the quiz starts, users will be presented with a series of multiple-choice questions, one at a time, along with a timer displaying the remaining time.
+
+![Question](assets/images/question.png)
+
+- Read each question carefully and click on the answer you believe is correct.
+
+- If you choose the correct answer, you will move onto the next questions.
+
+- If you select an incorrect answer, a time penalty of 10 seconds will be applied to your remaining time.
+
+**3. Timer:**
+
+- The timer, located at the top right corner, counts down from 60 seconds. For each incorrect answer, 10 seconds will be deducted.
+
+- The quiz will automatically end when the timer reaches zero or when you complete all the questions.
+
+**4. Quiz Completion:**
+
+- After you have answered all the questions or the timer runs out, the quiz will conclude. Your initials and score needs to be added into the form.
+
+**5. Submitting High Scores:**
+
+- To submit your score to the high scores leaderboard, enter your initials in the provided field and click the "Submit" button.
+
+![Submit High Score](assets/images/final-score.png)
+
+**Additional Tips:**
+
+- Pay attention to the timer. The quicker you answer correctly, the higher your score will be.
+
+- Challenge yourself and try to achieve a perfect score!
+
+By following these straightforward steps, users can easily navigate through the JavaScript Coding Quiz, test their JavaScript knowledge, and submit their high scores to compete with others. Enjoy the learning experience and have fun!
 
 ## Credits
 
@@ -56,7 +88,11 @@ Badges aren't necessary, per se, but they demonstrate street cred. Badges let ot
 
 ## Features
 
-If your project has a lot of features, list them here.
+- Multiple-choice questions on JavaScript fundamentals.
+- Timer to track the time remaining.
+- Score tracking.
+- High score submission.
+- High scores leaderboard.
 
 ## How to Contribute
 
